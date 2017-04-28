@@ -60,6 +60,31 @@
     };
 
     var getMetric = function(learnerId, metric, start, end) {
+        var data = {
+            learnerId: learnerId,
+            items: []
+        };
+
+        if (metric instanceof Array) {
+            metric.forEach(function(m) {
+                if (typeof m == 'string') {
+                    data.items.push({
+                        name: m,
+                        start: start,
+                        end: end
+                    });
+                } else {
+                    data.items.push(m);
+                }
+            });
+        } else {
+            data.items.push({
+                name: metric,
+                start: start,
+                end: end
+            });
+        }
+
         return xhrPromise($.ajax(
             kMetricUrl,
             {
@@ -67,14 +92,7 @@
                 headers: {
                     'api-key': mApiKey
                 },
-                data: JSON.stringify({
-                    learnerId: learnerId,
-                    items: [{
-                        name: metric,
-                        start: start,
-                        end: end
-                    }]
-                }),
+                data: JSON.stringify(data),
                 contentType: kJsonContentType,
                 xhrFields: {
                     withCredentials: true
