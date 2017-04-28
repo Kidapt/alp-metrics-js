@@ -1,0 +1,16 @@
+{
+  "name": "untitled",
+  "version": "1.0.0",
+  "description": "",
+  "main": "alp_metrics.js",
+  "dependencies": {
+    "uglify-js": "^2.8.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs alp_metrics.js -m > alp_metrics.min.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
