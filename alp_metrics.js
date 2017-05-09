@@ -9,10 +9,11 @@
     var mLandingUrl = undefined;
 
     //App constants
-    var kAuthUrl = 'https://develop.kidaptive.com/v3/openid/user/web';
-    var kLearnerUrl = 'https://develop.kidaptive.com/v3/learner';
-    var kLogoutUrl = 'https://develop.kidaptive.com/v3/user/logout';
-    var kMetricUrl = 'https://develop.kidaptive.com/v3/metric';
+    var kHost = 'https://service.kidaptive.com';
+    var kAuthUrl = '/v3/openid/user/web';
+    var kLearnerUrl = '/v3/learner';
+    var kLogoutUrl = '/v3/user/logout';
+    var kMetricUrl = '/v3/metric';
 
     var kStatusUnauthorized = 'Unauthorized';
     var kJsonContentType = 'application/json';
@@ -86,7 +87,7 @@
         }
 
         return xhrPromise($.ajax(
-            kMetricUrl,
+            kHost + kMetricUrl,
             {
                 method: 'POST',
                 headers: {
@@ -114,7 +115,7 @@
                 def.reject(new Error(kStatusUnauthorized));
             }
         });
-        authFrame.src = kAuthUrl + '?api_key=' + encodeURIComponent(mApiKey) + '&redirect_uri=' + encodeURIComponent(mLandingUrl);
+        authFrame.src = kHost + kAuthUrl + '?api_key=' + encodeURIComponent(mApiKey) + '&redirect_uri=' + encodeURIComponent(mLandingUrl);
 
         return def.then(getLearners).then(function(data){
             auth = true;
@@ -128,7 +129,7 @@
 
     var getLearners = function() {
         return xhrPromise($.ajax(
-            kLearnerUrl,
+            kHost + kLearnerUrl,
             {
                 method: 'GET',
                 headers: {
@@ -141,9 +142,13 @@
         ));
     };
 
-    window.initAlpAuth = function(apiKey, landingUrl) {
+    window.initAlpAuth = function(apiKey, landingUrl, options) {
         mApiKey = apiKey;
         mLandingUrl = landingUrl;
+        options = options ? options : {};
+        if (options['dev']) {
+            kHost = 'https://develop.kidaptive.com';
+        }
     };
 
     window.getAlpMetrics = function(providerLearnerId, metric, start, end) {
@@ -195,7 +200,7 @@
         }
 
         return xhrPromise($.ajax(
-            kLogoutUrl,
+            kHost + kLogoutUrl,
             {
                 method: 'POST',
                 headers: {
