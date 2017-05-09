@@ -16,8 +16,11 @@ The goal of this script is to allow for streamlined access the ALP metrics endpo
 First you must configure the script to use your app's API key and landing url. These parameters should have been defined
 in the OIDC setup.
 ```javascript
-initAlpAuth(apiKey, landingUrl);
+initAlpAuth(apiKey, landingUrl, {dev:false});
 ```
+`options` is an optional parameter storing other initialization parameters as key-value pairs.
+####Available options:
+* `dev` - Use development endpoint if truthy. Otherwise, use production endpoint.
 
 ### Requesting Metrics
 There are two forms to the metrics request function. In the first form, you provide a list of metric names to retrieve
