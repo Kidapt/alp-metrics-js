@@ -5,9 +5,13 @@ The goal of this script is to allow for streamlined access the ALP metrics endpo
 * jQuery >= 3.0.0
 
 ## Setup
+* get the latest release from Bower
+```
+bower install alp-metrics-js
+```
 * include `alp-metrics.js` in your document. Since jQuery is required, you must include it after the jQuery script tag.
 ```html
-<script type="text/javascript" src="path/to/alp_metrics.min.js"/>
+<script type="text/javascript" src="bower_components/alp-metrics-js/dist/alp_metrics.min.js"/>
 ```
 
 ## Usage
