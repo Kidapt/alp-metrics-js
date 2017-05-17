@@ -1,0 +1,25 @@
+{
+  "name": "alp-metrics-js",
+  "description": "Tool for accessing ALP metrics API",
+  "main": "dist/alp_metrics.js",
+  "authors": [
+    "Solomon Liu <sliu@kidaptive.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ALP",
+    "Kidaptive",
+    "metrics"
+  ],
+  "homepage": "https://github.com/Kidapt/alp-metrics-js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
