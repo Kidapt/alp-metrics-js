@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cp alp_metrics.js dist/alp_metrics.js && uglifyjs alp_metrics.js -m > dist/alp_metrics.min.js"
+    "build": "cp src/js/alp_metrics.js dist/ && uglifyjs src/js/alp_metrics.js -m > dist/alp_metrics.min.js"
   },
   "author": "",
   "license": "ISC"
