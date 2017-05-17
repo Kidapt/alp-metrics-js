@@ -1,8 +1,8 @@
 {
-  "name": "untitled",
+  "name": "alp-metrics-js",
   "version": "0.1.0",
-  "description": "",
-  "main": "alp_metrics.js",
+  "description": "Tool for accessing ALP metrics API",
+  "main": "dist/alp_metrics.js",
   "devDependencies": {
     "uglify-js": "^2.8.22"
   },
