@@ -1,6 +1,6 @@
 {
   "name": "alp-metrics-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Tool for accessing ALP metrics API",
   "main": "dist/alp_metrics.js",
   "devDependencies": {

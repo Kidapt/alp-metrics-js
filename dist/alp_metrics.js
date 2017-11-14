@@ -108,10 +108,14 @@
         var authFrame = getAuthFrame();
 
         $(authFrame).off('load').one('load', function() {
-            authFrame.onload = undefined;
-            if (authFrame.contentDocument && authFrame.contentDocument.URL == mLandingUrl) {
-                def.resolve();
-            } else {
+            try {
+                authFrame.onload = undefined;
+                if (authFrame.contentDocument && authFrame.contentDocument.URL == mLandingUrl) {
+                    def.resolve();
+                } else {
+                    def.reject(new Error(kStatusUnauthorized));
+                }
+            } catch (e) {
                 def.reject(new Error(kStatusUnauthorized));
             }
         });
